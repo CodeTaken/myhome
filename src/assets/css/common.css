@@ -1,0 +1,12 @@
+.c-flex{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.iconfont{
+  line-height:1;
+}
+.c-iconfont-20{
+  font-size:20px;
+  color:#000;
+}
