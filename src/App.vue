@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-
     <router-view/>
-
-    <FooterBar />
+    <FooterBar v-show="$route.meta.footerBarShow" />
     <div class="footer"></div>
   </div>
 </template>

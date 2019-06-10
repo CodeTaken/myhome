@@ -6,6 +6,8 @@ import  Order from '../pages/Order/Order.vue'
 import  ShopCart from '../pages/ShopCart/ShopCart.vue'
 import  Profile from '../pages/Profile/Profile.vue'
 
+import  Login from '../pages/Login/Login.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -13,22 +15,42 @@ export default new Router({
     {
       path: '/home',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta:{
+        footerBarShow:true
+      }
     },
     {
       path: '/order',
       name: 'Order',
-      component: Order
+      component: Order,
+      meta:{
+        footerBarShow:true
+      }
     },
     {
       path: '/shopCart',
       name: 'ShopCart',
-      component: ShopCart
+      component: ShopCart,
+      meta:{
+        footerBarShow:true
+      }
     },
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile
+      component: Profile,
+      meta:{
+        footerBarShow:true
+      }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      meta:{
+
+      }
     },
     {
       path: '/',
