@@ -8,11 +8,23 @@
 
 <script>
 import FooterBar from  './components/FooterBar/FooterBar.vue'
+
+import  {mapActions} from 'vuex'
 export default {
   name: 'App',
   components:{
     FooterBar
-  }
+  },
+  mounted (){
+    //this.ressetUser();
+    this.$store.dispatch('ressetUser')
+  },
+  methods:{
+   // ...mapActions(['ressetUser'])
+  },
+  computed:{
+
+  },
 }
 </script>
 

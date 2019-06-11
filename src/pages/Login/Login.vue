@@ -23,20 +23,20 @@
               </div>
               <div class="formContent" :class="{active:!loginMode}">
                 <div class="group">
-                  <input class="inputBasic" placeholder="请输入手机号码/邮箱" type="text">
-                  <button disabled class="getCode">获取验证码</button>
+                  <input class="inputBasic" placeholder="请输入手机号码/邮箱" type="text" v-model="pwdLogin.name">
                 </div>
                 <div class="group">
-                  <input class="inputBasic" placeholder="请输入密码" type="text">
+                  <input class="inputBasic" placeholder="请输入密码" type="password" v-model="pwdLogin.pwd">
                 </div>
               </div>
-              <mt-button class="submitBtn"  size="large" type="primary" @click.prevent="getCode">登录</mt-button>
+              <mt-button class="submitBtn"  size="large" type="primary" @click.prevent="submit">登录</mt-button>
             </div>
          </div>
     </div>
 </template>
 
 <script>
+  import {reqPwdForm} from '../../api/index'
     export default {
         data () {
             return {
@@ -47,15 +47,53 @@
                   code:''
               },
               pwdLogin:{
-                phone:'',
-                code:''
+                name:'',
+                pwd:''
               }
             }
         },
       methods:{
         getCode(){
             console.log('getCode');
-        }
+        },
+        async submit(){
+          const {loginMode,phoneLogin,pwdLogin} = this;
+          const name = this.pwdLogin.name
+          const pwd = this.pwdLogin.pwd;
+          let result;
+          if(this.loginMode){
+            // 短信登录
+          }else{
+            // 密码登录
+            if(!this.pwdLogin.name ){
+              alert('请输入用户名！')
+              return
+            }else if(!this.pwdLogin.pwd){
+              alert('请输入密码！')
+              return
+            }else{
+              // 请求后台  // 异步
+              console.log({name,pwd});
+              result = await reqPwdForm('/tipsApi',{name,pwd},"POST")
+              console.log(result);
+            }
+
+
+            if(result.code ===0){
+              // 请求成功
+              this.$router.back();
+              // 操作 store ，将数据存储在 store 中
+              const userInfo = {
+                name:'xuqi',
+                phone:''
+              }
+              this.$store.dispatch('recordUser',userInfo)
+
+            }else{
+              alert(result.message)
+            }
+          }
+        },
       },
       computed:{
         phoneCheck(){

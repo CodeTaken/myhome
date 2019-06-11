@@ -5,8 +5,8 @@
               <i class="iconfont icon-renwu-ren userIcon"></i>
             </div>
             <div class="userMessage">
-                <div class="">登录/注册</div>
-                <div class=""><i class="iconfont icon-shouji"></i>暂无绑定手机号</div>
+                <div class="" v-if="!userInfo.phone">{{userInfo.name || '登录/注册'}}</div>
+                <div class=""><i class="iconfont icon-shouji"></i>{{userInfo.phone || '暂无绑定手机号'}}</div>
             </div>
             <i class="iconfont icon-youjiantou rightIcon"></i>
         </div>
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
     export default {
         data () {
             return {}
@@ -63,7 +64,10 @@
           goPath(path){
               this.$router.push(path);
           }
-        }
+        },
+      computed:{
+        ...mapState(['userInfo'])
+      }
     }
 </script>
 

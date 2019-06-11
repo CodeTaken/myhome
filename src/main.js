@@ -13,14 +13,15 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)
 import { Button } from 'mint-ui';
 Vue.component(Button.name, Button);
 
-
-
+import store from './store'
+import './mock/mockServer'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
