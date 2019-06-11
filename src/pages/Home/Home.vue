@@ -2,8 +2,9 @@
     <div class="pageHome">
         <div class="navabr">navbar</div>
         <div class="ad">
-          广告部分
-        </div>
+      广告部分
+    </div>
+      <Swiper />
         <ShopList />
     </div>
 </template>
@@ -12,12 +13,14 @@
 
 <script>
   import ShopList from '../../components/ShopList/ShopList.vue'
+  import Swiper from '../../components/Swiper/Swiper.vue'
     export default {
         data () {
             return {}
         },
       components:{
-        ShopList
+        ShopList,
+        Swiper
       }
     }
 </script>

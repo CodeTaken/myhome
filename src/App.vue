@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import FooterBar from  './components/FooterBar/FooterBar.vue'
+import FooterBar from  './components/FooterBar/FooterBar.vue'
 export default {
   name: 'App',
   components:{
