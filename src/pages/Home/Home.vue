@@ -1,12 +1,11 @@
 <template>
     <div class="pageHome">
-        <div class="navabr">navbar</div>
-        <div class="ad">
-      广告部分
-    </div>
       <Swiper :ad="swip_data" />
-
-      <ShopList />
+      <div class="navabr">navbar</div>
+      <div class="ad">
+        广告部分
+      </div>
+      <ShopList :shopList="shopList" />
     </div>
 </template>
 
@@ -22,6 +21,7 @@
         },
       mounted(){
         this.$store.dispatch('getAdvent')
+        this.$store.dispatch('getShopList')
       },
       components:{
         ShopList,
@@ -29,6 +29,7 @@
       },
       computed:{
         ...mapState(['ad']),
+        ...mapState(['shopList']),
         swip_data(){
             const {ad} = this
             let data = {};

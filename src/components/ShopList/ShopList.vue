@@ -1,174 +1,40 @@
 <template>
   <div class="shopMoudle">
-    <div class="flex shopItem">
+    <div class="flex shopItem" v-for="(shopItem , index) in shopList" :key="index">
       <div class="shopMessage">
-        <div class="shopName">金瑜川菜（中关村店）   <span class="take-outFood">外卖</span></div>
+        <div class="shopName">{{shopItem.name}}   <span class="take-outFood" v-if="shopItem.rating">{{shopItem.rating}}</span></div>
         <div class="shopsInfo clearFloat">
-          <span class="grade">4.7分</span> | <span class="gradeBasic">起送假￥20</span> | <span class="gradeBasic">配送费￥5</span>
-          <div class="time">30分钟送达</div>
+          <span class="grade">{{shopItem.score}}分</span> | <span class="gradeBasic">起送价￥{{shopItem.minPrice}}</span> | <span class="gradeBasic">配送费￥{{shopItem.deliveryPrice}}</span>
+          <div class="time">{{shopItem.deliveryTime}}分钟送达</div>
         </div>
-        <div class="discountContent"> <span class="discount discountOne">优惠</span>满30减6</div>
+        <div class="discountContent"> <span class="discount discountOne" :class="supportClasses[shopItem.supports[0].type]">{{shopItem.supports[0].name}}</span>{{ shopItem.supports[0].content}}</div>
         <div class="flex condition">
-          <span class="conditionItem">支持自取</span>
-          <span class="conditionItem">点评高分店铺</span>
+          <span class="conditionItem" v-for="(item , index ) in shopItem.service" :key="index">{{item}}</span>
         </div>
       </div>
       <div class="flex shopImg">
-        <div class="shopImgItem">
+        <div class="shopImgItem" v-for="(goods , index ) in shopItem.goodList" :key="index">
           <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
+            <img class="img_auto" :src="goods.goodImg" alt="">
+            <div class="price">￥{{goods.price}}</div>
           </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
+          <div class="foodName">{{goods.goodName}}</div>
         </div>
       </div>
     </div>
-
-
-    <div class="flex shopItem">
-      <div class="shopMessage">
-        <div class="shopName">金瑜川菜（中关村店）   <span class="take-outFood">外卖</span></div>
-        <div class="shopsInfo clearFloat">
-          <span class="grade">4.7分</span> | <span class="gradeBasic">起送假￥20</span> | <span class="gradeBasic">配送费￥5</span>
-          <div class="time">30分钟送达</div>
-        </div>
-        <div class="discountContent"> <span class="discount discountOne">优惠</span>满30减6</div>
-        <div class="flex condition">
-          <span class="conditionItem">支持自取</span>
-          <span class="conditionItem">点评高分店铺</span>
-        </div>
-      </div>
-      <div class="flex shopImg">
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="flex shopItem">
-      <div class="shopMessage">
-        <div class="shopName">金瑜川菜（中关村店）   <span class="take-outFood">外卖</span></div>
-        <div class="shopsInfo clearFloat">
-          <span class="grade">4.7分</span> | <span class="gradeBasic">起送假￥20</span> | <span class="gradeBasic">配送费￥5</span>
-          <div class="time">30分钟送达</div>
-        </div>
-        <div class="discountContent"> <span class="discount discountOne">优惠</span>满30减6</div>
-        <div class="flex condition">
-          <span class="conditionItem">支持自取</span>
-          <span class="conditionItem">点评高分店铺</span>
-        </div>
-      </div>
-      <div class="flex shopImg">
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="flex shopItem">
-      <div class="shopMessage">
-        <div class="shopName">金瑜川菜（中关村店）   <span class="take-outFood">外卖</span></div>
-        <div class="shopsInfo clearFloat">
-          <span class="grade">4.7分</span> | <span class="gradeBasic">起送假￥20</span> | <span class="gradeBasic">配送费￥5</span>
-          <div class="time">30分钟送达</div>
-        </div>
-        <div class="discountContent"> <span class="discount discountOne">优惠</span>满30减6</div>
-        <div class="flex condition">
-          <span class="conditionItem">支持自取</span>
-          <span class="conditionItem">点评高分店铺</span>
-        </div>
-      </div>
-      <div class="flex shopImg">
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-        <div class="shopImgItem">
-          <div class="shopImgContent">
-            <img src="" alt="">
-            <div class="price">￥3.0</div>
-          </div>
-          <div class="foodName">虎皮青椒</div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
 
   </div>
 </template>
 
 <script>
     export default {
+        props:{
+            shopList:Array
+        },
         data () {
-            return {}
+            return {
+              supportClasses: ['activity-green', 'activity-red', 'activity-orange'],
+            }
         }
     }
 </script>
@@ -224,6 +90,15 @@
   }
   .discountOne{
     background:linear-gradient(to right , #ed7150, #ea5741);
+  }
+  .activity-green{
+    background:linear-gradient(to right , #a73b4d, #f80000);
+  }
+  .activity-red{
+    background:linear-gradient(to right , #ed7150, #ea5741);
+  }
+  .activity-orange{
+    background:linear-gradient(to right , #f7d171, #f2b644);
   }
   .condition{
     justify-content: flex-start;

@@ -2,7 +2,8 @@
 import {
   RECEIVE_USERINFO,
   RESER_USERINFO,
-  RECEIVE_AD
+  RECEIVE_AD,
+  RECEIVE_SHOPLIST
 } from './mutations-types'
 
 export default {
@@ -15,7 +16,9 @@ export default {
   },
   [RECEIVE_AD] (state,ad) {
     state.ad = ad
+  },
+  [RECEIVE_SHOPLIST] (state,shopList){
+    state.shopList = shopList
   }
-
 
 }

@@ -13,6 +13,8 @@ export const reqPhoneCode = ({identificationValue,isEmail,isPhone,userid}) =>aja
 //首页广告
 // todo 获取广告
 export const reqPageAd = () =>ajax('/reqAd');
+// todo 请求商家列表
+export const reqShopsList =() =>ajax('/shoplist')
 
 
 

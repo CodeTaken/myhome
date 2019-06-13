@@ -12,5 +12,521 @@
     "http://img0.imgtn.bdimg.com/it/u=1216853551,1892406311&fm=26&gp=0.jpg",
     "http://img0.imgtn.bdimg.com/it/u=1216853551,1892406311&fm=26&gp=0.jpg",
     "http://img0.imgtn.bdimg.com/it/u=1216853551,1892406311&fm=26&gp=0.jpg"
+  ],
+  "shopList":[
+    {
+      "id":0,
+      "name":"金瑜川菜（中关村店）",
+      "score": 4.2,
+      "serviceScore": 4.1,
+      "deliveryTime": 28,
+      "description": "硅谷专送",
+      "minPrice": 20,
+      "deliveryPrice": 4,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取","点评高分店铺","回头客超多"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"虎皮青椒",
+          "price":16
+        },
+        {
+          "goodImg":"",
+          "goodName":"干瘪豆角",
+          "price":18
+        },
+        {
+          "goodImg":"",
+          "goodName":"腊肉小炒",
+          "price":26
+        }
+      ]
+    },
+    {
+      "id":1,
+      "name":"川湘小厨",
+      "score": 4.7,
+      "serviceScore": 4.1,
+      "deliveryTime":30,
+      "description": "硅谷专送",
+      "minPrice":24,
+      "deliveryPrice":5,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取","回头客超多"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"农家炒肉",
+          "price":20
+        },
+        {
+          "goodImg":"",
+          "goodName":"香干炒饭",
+          "price":23.8
+        },
+        {
+          "goodImg":"",
+          "goodName":"咸鸭蛋",
+          "price":3.68
+        }
+      ]
+    },
+    {
+      "id":0,
+      "name":"眉州东坡",
+      "score": 5,
+      "serviceScore": 4.1,
+      "deliveryTime":40,
+      "description": "硅谷专送",
+      "minPrice": 30,
+      "deliveryPrice":6,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取","点评高分店铺","回头客超多"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"商务套餐B",
+          "price":50
+        },
+        {
+          "goodImg":"",
+          "goodName":"商务套餐A",
+          "price":3
+        },
+        {
+          "goodImg":"",
+          "goodName":"水煮鱼",
+          "price":46
+        }
+      ]
+    },
+    {
+      "id":0,
+      "name":"必胜客",
+      "score": 4.7,
+      "serviceScore": 4.1,
+      "deliveryTime":25,
+      "description": "硅谷专送",
+      "minPrice":24,
+      "deliveryPrice":5,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取","点评高分店铺","回头客超多"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"意式肉酱面",
+          "price":35
+        },
+        {
+          "goodImg":"",
+          "goodName":"鸡洱蘑菇汤",
+          "price":23
+        },
+        {
+          "goodImg":"",
+          "goodName":"美式薯格",
+          "price":11
+        }
+      ]
+    },
+    {
+      "id":0,
+      "name":"功夫大盘鸡",
+      "score": 4.2,
+      "serviceScore": 4.1,
+      "deliveryTime": 23,
+      "description": "硅谷专送",
+      "minPrice": 20,
+      "deliveryPrice": 4,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":[],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"单人套餐",
+          "price":28.8
+        },
+        {
+          "goodImg":"",
+          "goodName":"功夫扯面",
+          "price":5
+        },
+        {
+          "goodImg":"",
+          "goodName":"功夫大盘鸡",
+          "price":78
+        }
+      ]
+    },
+    {
+      "id":0,
+      "name":"嘉禾一品（温都水城）",
+      "score": 4.9,
+      "serviceScore": 4.1,
+      "deliveryTime": 28,
+      "description": "硅谷专送",
+      "minPrice":18,
+      "deliveryPrice":5,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取","点评高分店铺","回头客超多"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"豆角焖面",
+          "price":22
+        },
+        {
+          "goodImg":"",
+          "goodName":"西红柿鸡蛋汤",
+          "price":7
+        },
+        {
+          "goodImg":"",
+          "goodName":"皮蛋瘦肉粥",
+          "price":15
+        }
+      ]
+    },
+    {
+      "id":0,
+      "name":"胡记原汁牛肉汤",
+      "score": 4.5,
+      "serviceScore": 4.1,
+      "deliveryTime": 28,
+      "description": "硅谷专送",
+      "minPrice":22,
+      "deliveryPrice": 4,
+      "rating":"外卖",
+      "sellCount": 90,
+      "service":["支持自取"],
+      "distance": "1000m",
+      "supports": [
+        {
+          "type": 0,
+          "name": "首单",
+          "content": "新用户下单立减17元(不与其它活动同享)"
+        },
+        {
+          "type": 1,
+          "name": "满减",
+          "content": "满35减19，满65减35"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.5元】欢乐小食餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减29元】火烤菠萝皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减16.5元】火烤菠萝皇堡单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减15】经典安格斯单人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减11.95】皇堡双人餐"
+        },
+        {
+          "type": 2,
+          "name": "特价",
+          "content": "【立减19.8】半价单人餐"
+        }
+      ],
+      "goodList":[
+        {
+          "goodImg":"",
+          "goodName":"牛肉汤",
+          "price":19.9
+        },
+        {
+          "goodImg":"",
+          "goodName":"特色烧饼",
+          "price":3.9
+        },
+        {
+          "goodImg":"",
+          "goodName":"胡辣汤",
+          "price":13.9
+        }
+      ]
+    }
   ]
 }
+
+

@@ -1,12 +1,14 @@
 import {
   RECEIVE_USERINFO,
   RESER_USERINFO,
-  RECEIVE_AD
+  RECEIVE_AD,
+  RECEIVE_SHOPLIST
 } from './mutations-types'
 import {
   reqPwdForm,
   reqUserInfo,
-  reqPageAd
+  reqPageAd,
+  reqShopsList
 } from '../api/index'
 
 
@@ -35,7 +37,16 @@ export default {
       const ad = result.data
       commit(RECEIVE_AD,ad)
     }
+  },
+  // 异步获取商家列表信息
+  async getShopList ({commit}) {
+    const result =await reqShopsList();
+    if(result.code === 0){
+      const shopList = result.data
+      commit(RECEIVE_SHOPLIST,shopList)
+    }
   }
+
 }
 
 
