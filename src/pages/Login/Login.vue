@@ -11,7 +11,9 @@
               <div class="formContent" :class="{active:loginMode}">
                 <div class="group">
                   <input class="inputBasic" placeholder="请输入手机号码" type="text" v-model="phoneLogin.phone">
-                  <button :disabled="!phoneCheck" @click.prevent="getCode" class="getCode" :class="{disable:phoneCheck}">获取验证码</button>
+                  <button :disabled="!phoneCheck" @click.prevent="getCode" class="getCode" :class="{disable:phoneCheck}">
+                       {{!sendBtnShow? '获取验证码' : downCount+'秒' }}
+                  </button>
                 </div>
                 <div class="group">
                   <input class="inputBasic" placeholder="请输入验证码" type="text" v-model="phoneLogin.code">
@@ -36,12 +38,13 @@
 </template>
 
 <script>
-  import {reqPwdForm} from '../../api/index'
+  import {reqPwdForm,reqPhoneCode} from '../../api/index'
     export default {
         data () {
             return {
               loginMode:true,  // 登录方式
-              sendBtnShow:true,
+              sendBtnShow:false,  // 是否显示倒数计时
+              downCount:60,   //倒计时数
               phoneLogin:{
                   phone:'',
                   code:''
@@ -49,20 +52,56 @@
               pwdLogin:{
                 name:'',
                 pwd:''
-              }
+              },
+              timerCode:null     // 定时器
             }
         },
       methods:{
-        getCode(){
-            console.log('getCode');
+        async getCode(){
+            const {phoneLogin,downCount} = this;
+            let that = this;
+            if(this.phoneLogin.phone){
+                // 开始倒计时
+                this.sendBtnShow = true
+                if(!this.timerCode){
+                  this.timerCode = setInterval(function(){
+                    that.downCount--;
+                    if(that.downCount ===0){
+                      that.clearInterval()
+                    }
+                  },1000);
+                }
+                let obj = {
+                    identificationValue:this.phoneLogin.phone,
+                    isEmail:false,
+                    isPhone:true,
+                    userid:''
+                }
+                const result = await reqPhoneCode(obj)
+            }
         },
         async submit(){
           const {loginMode,phoneLogin,pwdLogin} = this;
           const name = this.pwdLogin.name
           const pwd = this.pwdLogin.pwd;
+          const reg = /^1\d{10}$/;
           let result;
           if(this.loginMode){
             // 短信登录
+            if(!this.phoneLogin.phone ){
+              alert('请输入手机号!');
+              return
+            }else if(!reg.test(this.phoneLogin.phone)){
+              alert('手机号格式不正确！');
+              return
+            }else if(!this.phoneLogin.code){
+              alert('请输入验证码！');
+              return
+            }
+            else{
+              // 请求后台  // 异步
+              result = await reqPwdForm('/tipsApi',{name,pwd},"POST")
+            }
           }else{
             // 密码登录
             if(!this.pwdLogin.name ){
@@ -73,33 +112,36 @@
               return
             }else{
               // 请求后台  // 异步
-              console.log({name,pwd});
               result = await reqPwdForm('/tipsApi',{name,pwd},"POST")
-              console.log(result);
-            }
-
-
-            if(result.code ===0){
-              // 请求成功
-              this.$router.back();
-              // 操作 store ，将数据存储在 store 中
-              const userInfo = {
-                name:'xuqi',
-                phone:''
-              }
-              this.$store.dispatch('recordUser',userInfo)
-
-            }else{
-              alert(result.message)
             }
           }
+          this.clearInterval()
+          if(result.code ===0){
+            // 请求成功
+            this.$router.replace('/profile');
+            // 操作 store ，将数据存储在 store 中
+            const userInfo = {
+              name:'xuqi',
+              phone:''
+            }
+            this.$store.dispatch('recordUser',userInfo)
+
+          }else{
+            alert(result.message)
+          }
         },
+        clearInterval(){
+            const {timerCode,sendBtnShow,downCount} = this;
+            if(this.timerCode)  clearInterval(this.timerCode)
+            this.timerCode = null;
+            this.sendBtnShow = false
+            this.downCount  = 60
+        }
       },
       computed:{
         phoneCheck(){
           const reg = /^1\d{10}$/;
           const {phoneLogin,sendBtnShow} = this;
-          console.log(this.phoneLogin.phone);
           if(reg.test(this.phoneLogin.phone)){
             return true
           }

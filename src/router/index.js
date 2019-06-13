@@ -7,6 +7,7 @@ import  ShopCart from '../pages/ShopCart/ShopCart.vue'
 import  Profile from '../pages/Profile/Profile.vue'
 
 import  Login from '../pages/Login/Login.vue'
+import  Users from '../pages/Users/Users.vue'
 
 Vue.use(Router)
 
@@ -48,6 +49,14 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+      meta:{
+
+      }
+    },
+    {
+      path: '/users',
+      name: 'Users',
+      component: Users,
       meta:{
 
       }

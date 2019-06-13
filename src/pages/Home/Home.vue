@@ -4,8 +4,9 @@
         <div class="ad">
       广告部分
     </div>
-      <Swiper />
-        <ShopList />
+      <Swiper :ad="swip_data" />
+
+      <ShopList />
     </div>
 </template>
 
@@ -14,13 +15,33 @@
 <script>
   import ShopList from '../../components/ShopList/ShopList.vue'
   import Swiper from '../../components/Swiper/Swiper.vue'
+  import {mapState} from 'vuex'
     export default {
         data () {
             return {}
         },
+      mounted(){
+        this.$store.dispatch('getAdvent')
+      },
       components:{
         ShopList,
         Swiper
+      },
+      computed:{
+        ...mapState(['ad']),
+        swip_data(){
+            const {ad} = this
+            let data = {};
+            data.data= ad;
+          data.options = {
+            autoplay: true,
+            pagination: {
+              el: '.swiper-pagination',
+              bulletActiveClass: 'my-bullet-active',
+            },
+          };
+            return data
+        }
       }
     }
 </script>

@@ -1,18 +1,14 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper" class="swiperModule">
+  <swiper :options="ad.options" ref="mySwiper" class="swiperModule">
     <!-- slides -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
+    <swiper-slide v-for="(adItem,index) in ad.data" :key="index">
+      <img :src="adItem" class="img_auto" alt="">
+    </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
     <!--<div class="swiper-button-prev" slot="button-prev"></div>-->
     <!--<div class="swiper-button-next" slot="button-next"></div>-->
-    <div class="swiper-scrollbar"   slot="scrollbar"></div>
+    <!--<div class="swiper-scrollbar"   slot="scrollbar"></div>-->
   </swiper>
 </template>
 
@@ -20,13 +16,11 @@
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
     export default {
+      props:{
+          ad:Object
+      },
         data () {
             return {
-              swiperOption: {
-                // some swiper options/callbacks
-                // 所有的参数同 swiper 官方 api 参数
-                // ...
-              }
             }
         },
       mounted() {
@@ -51,4 +45,15 @@
   min-height:80px;
   background:#fff;
 }
+</style>
+
+<style>
+  .swiperModule .my-bullet-active{
+    background:#fff;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet{
+    background:#fff;
+    opacity:0.5;
+  }
 </style>

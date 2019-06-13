@@ -1,6 +1,6 @@
 <template>
     <div class="profileModule">
-        <div class="flex userMoudle" @click="goPath('/login')">
+        <router-link class="flex userMoudle" :to="(userInfo.phone || userInfo.name)? '/users' : '/login'  ">
             <div class="flex userImg">
               <i class="iconfont icon-renwu-ren userIcon"></i>
             </div>
@@ -9,7 +9,7 @@
                 <div class=""><i class="iconfont icon-shouji"></i>{{userInfo.phone || '暂无绑定手机号'}}</div>
             </div>
             <i class="iconfont icon-youjiantou rightIcon"></i>
-        </div>
+        </router-link>
 
         <div class="profileList">
             <div class="profileItem">
