@@ -1,7 +1,8 @@
 <template>
   <div class="shopMoudle">
-    <div class="flex shopItem" v-for="(shopItem , index) in shopList" :key="index">
-      <div class="shopMessage">
+    <div class="" v-for="(shopItem , index) in shopList" :key="index">
+      <router-link :to="{name: 'ShopCart', params: { id: shopItem.id } }" class="flex shopItem" href="javascript:">
+        <div class="shopMessage">
         <div class="shopName">{{shopItem.name}}   <span class="take-outFood" v-if="shopItem.rating">{{shopItem.rating}}</span></div>
         <div class="shopsInfo clearFloat">
           <span class="grade">{{shopItem.score}}分</span> | <span class="gradeBasic">起送价￥{{shopItem.minPrice}}</span> | <span class="gradeBasic">配送费￥{{shopItem.deliveryPrice}}</span>
@@ -12,15 +13,20 @@
           <span class="conditionItem" v-for="(item , index ) in shopItem.service" :key="index">{{item}}</span>
         </div>
       </div>
-      <div class="flex shopImg">
-        <div class="shopImgItem" v-for="(goods , index ) in shopItem.goodList" :key="index">
-          <div class="shopImgContent">
-            <img class="img_auto" :src="goods.goodImg" alt="">
-            <div class="price">￥{{goods.price}}</div>
+        <div class="flex shopImg">
+          <div class="shopImgItem" v-for="(goods , index ) in shopItem.goodList" :key="index">
+            <div class="shopImgContent">
+              <img class="img_auto" :src="goods.goodImg" alt="">
+              <div class="price">￥{{goods.price}}</div>
+            </div>
+            <div class="foodName">{{goods.goodName}}</div>
           </div>
-          <div class="foodName">{{goods.goodName}}</div>
-        </div>
-      </div>
+        </div>       
+
+      </router-link>
+
+
+
     </div>
 
   </div>

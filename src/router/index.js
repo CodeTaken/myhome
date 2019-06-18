@@ -9,6 +9,7 @@ import  Profile from '../pages/Profile/Profile.vue'
 import  Login from '../pages/Login/Login.vue'
 import  Users from '../pages/Users/Users.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -34,7 +35,7 @@ export default new Router({
       name: 'ShopCart',
       component: ShopCart,
       meta:{
-        footerBarShow:true
+        // footerBarShow:true
       }
     },
     {

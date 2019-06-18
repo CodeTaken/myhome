@@ -1,6 +1,26 @@
 <template>
-    <div>
-      ShopCart
+    <div class="shopCartPges">
+      <div class="shopHeader">
+          <div class="banner">
+            <img class="logo" src="" alt="">
+          </div>
+          <div class="shopName">金瑜川菜（中关村店）</div>
+          <div class="shopMessage">
+            <span>月售120单</span>
+            <span>骆驼专送</span>
+            <span>约30分钟</span>
+            <span>距离1.5km</span>
+          </div>
+          <div class="flex discount">
+            <p class="discountContent">
+              <span>首单</span> <span>新用户下单立减17元（不与其它优惠......</span>
+            </p>
+            <p class="discountCount">8个优惠</p>
+          </div>
+
+      </div>
+      <div class="shopNav"></div>
+      <div class="shopContent"></div>
     </div>
 </template>
 
@@ -14,5 +34,58 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.banner{
+  background:#ddd;
+  height:120px;
+  position: relative;
+  margin-bottom:40px;
+}
+.logo{
+  position: absolute;
+  bottom:-30px;
+  width:60px;
+  height:60px;
+  background:#fff;
+  left:50%;
+  transform: translateX(-50%);
+}
+.shopName{
+  font-size:18px;
+  font-weight:bold;
+  text-align: center;
+}
+.shopMessage{
+  font-size:14px;
+  text-align: center;
+  color:#aeaeae;
+}
+.discount{
+  width:85%;
+  margin:0 auto;
+  border:1px solid #aeaeae;
+  padding:2px 10px;
+  justify-content: space-between;
+}
+.discountContent{
+  width:220px;
+  overflow: hidden;
+  height:24px;
+}
+.discountCount{
+  width:80px;
+  text-align: right;
+  position: relative;
+  padding-right:14px;
+}
+.discountCount:after{
+  content:'';
+  position: absolute;
+  width:0;
+  height:0;
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:10px solid #333;
+  top:50%;
+  transform: translateY(-50%);
+}
 </style>
