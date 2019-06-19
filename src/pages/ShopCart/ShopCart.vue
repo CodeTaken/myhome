@@ -19,8 +19,20 @@
           </div>
 
       </div>
-      <div class="shopNav"></div>
-      <div class="shopContent"></div>
+      <div class="flex shopNav">
+          <div class="tab-view">
+              <router-link to="/shopCart/goods" replace>点餐</router-link>
+          </div>
+        <div class="tab-view">
+          <router-link to="/shopCart/ratings" replace>评价</router-link>
+        </div>
+        <div class="tab-view">
+          <router-link to="/shopCart/info" replace>商家</router-link>
+        </div>
+      </div>
+
+      <router-view></router-view>
+
     </div>
 </template>
 
@@ -34,6 +46,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .shopCartPges{
+    background:#fff;
+  }
 .banner{
   background:#ddd;
   height:120px;
@@ -88,4 +103,23 @@
   top:50%;
   transform: translateY(-50%);
 }
+
+.tab-view{
+  flex: 1;
+  text-align: center;
+  font-size:16px;
+  margin-top:10px;
+  border-bottom:1px solid #ddd;
+  padding:4px 0;
+}
+.tab-view a{
+  display: inline-block;
+  height:100%;
+  border-bottom:2px solid transparent;
+}
+.tab-view .router-link-active{
+  color: #f2b644;
+  border-bottom:2px solid #f2b644;
+}
+
 </style>

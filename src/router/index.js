@@ -9,6 +9,10 @@ import  Profile from '../pages/Profile/Profile.vue'
 import  Login from '../pages/Login/Login.vue'
 import  Users from '../pages/Users/Users.vue'
 
+import  ShopGoods from '../pages/ShopCart/ShopGoods/ShopGoods'
+import  ShopInfo from '../pages/ShopCart/ShopInfo/ShopInfo'
+import  ShopRatings from '../pages/ShopCart/ShopRatings/ShopRatings'
+
 
 Vue.use(Router)
 
@@ -34,6 +38,27 @@ export default new Router({
       path: '/shopCart',
       name: 'ShopCart',
       component: ShopCart,
+      children:[
+        {
+          path:'/shopCart/goods',
+          // name:'ShopGoods',
+          component:ShopGoods
+        },
+        {
+          path:'/shopCart/info',
+          // name:'ShopInfo',
+          component:ShopInfo
+        },
+        {
+          path:'/shopCart/ratings',
+          // name:'ShopRatings',
+          component:ShopRatings
+        },
+        {
+          path:'',
+         redirect:'/shopCart/goods'
+        }
+      ],
       meta:{
         // footerBarShow:true
       }
