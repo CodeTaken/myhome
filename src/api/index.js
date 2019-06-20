@@ -18,6 +18,17 @@ export const reqShopsList =() =>ajax('/shoplist')
 
 
 
+// 商家页
+// todo 获取商家商品信息
+export const reqShopGoods =(id)=>ajax('/shopGoods',id)
+// todo 获取商家信息
+export const reqShopInfo = (id) =>ajax('/shopInfo',id)
+// todo 获取商家评价
+export const reqShopRatings =(id) =>ajax('/shopRatings',id)
+
+
+
+
 
 
 // 通用接口，表明请求成功

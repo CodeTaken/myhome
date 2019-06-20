@@ -2,13 +2,19 @@ import {
   RECEIVE_USERINFO,
   RESER_USERINFO,
   RECEIVE_AD,
-  RECEIVE_SHOPLIST
+  RECEIVE_SHOPLIST,
+  RECEIVE_SHOPGOODS,
+  RECEIVE_SHOPINFO,
+  RECEIVE_SHOPRATINGS
 } from './mutations-types'
 import {
   reqPwdForm,
   reqUserInfo,
   reqPageAd,
-  reqShopsList
+  reqShopsList,
+  reqShopGoods,
+  reqShopInfo,
+  reqShopRatings
 } from '../api/index'
 
 
@@ -44,6 +50,33 @@ export default {
     if(result.code === 0){
       const shopList = result.data
       commit(RECEIVE_SHOPLIST,shopList)
+    }
+  },
+
+  // 异步获取商家商品信息
+  async getShopGoods ({commit},id){
+    let result  =await reqShopGoods(id)
+    console.log(result);
+    if(result.code===0){
+      let goods = result.data
+        commit(RECEIVE_SHOPGOODS,goods)
+    }
+  },
+
+  //异步获取商家基本信息
+  async getShopInfo({commit},id){
+    let result =await reqShopInfo(id)
+    if(result.code===0){
+      let info  = result.data
+      commit(RECEIVE_SHOPINFO,info)
+    }
+  },
+  // 异步获取商家评论信息
+  async getShopRatings({commit},id){
+    let result = await reqShopRatings(id)
+    if(result.code===0){
+      let ratings = result.data
+      commit(RECEIVE_SHOPRATINGS,ratings)
     }
   }
 

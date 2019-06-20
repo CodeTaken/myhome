@@ -4,18 +4,18 @@
           <div class="banner">
             <img class="logo" src="" alt="">
           </div>
-          <div class="shopName">金瑜川菜（中关村店）</div>
+          <div class="shopName">{{info.name}}</div>
           <div class="shopMessage">
-            <span>月售120单</span>
-            <span>骆驼专送</span>
-            <span>约30分钟</span>
-            <span>距离1.5km</span>
+            <span>月售{{info.sellCount}}单</span>
+            <span>{{info.description}}</span>
+            <span>约{{info.deliveryTime}}分钟</span>
+            <span>距离{{info.distance}}</span>
           </div>
-          <div class="flex discount">
-            <p class="discountContent">
-              <span>首单</span> <span>新用户下单立减17元（不与其它优惠......</span>
+          <div class="flex discount" v-if="info.supports">
+            <p class="discountContent ellipsis" >
+              <span >{{info.supports[0].name}}</span> <span class="">{{info.supports[0].content}}</span>
             </p>
-            <p class="discountCount">8个优惠</p>
+            <p class="discountCount" v-if="info.supports.length>0">{{info.supports.length}}个优惠</p>
           </div>
 
       </div>
@@ -33,14 +33,30 @@
 
       <router-view></router-view>
 
+
+
+
+    <!--<CenterFrame/>-->
     </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex'
+  import CenterFrame from '../../components/CenterFrame/CenterFrame.vue'
     export default {
         data () {
             return {}
-        }
+        },
+      components:{
+        CenterFrame
+      },
+      mounted(){
+        this.$store.dispatch('getShopInfo',2)
+        this.$store.dispatch('getShopRatings',2)
+      },
+      computed:{
+        ...mapState(['goods','info','ratings'])
+      },
     }
 </script>
 

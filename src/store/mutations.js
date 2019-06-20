@@ -3,7 +3,10 @@ import {
   RECEIVE_USERINFO,
   RESER_USERINFO,
   RECEIVE_AD,
-  RECEIVE_SHOPLIST
+  RECEIVE_SHOPLIST,
+  RECEIVE_SHOPGOODS,
+  RECEIVE_SHOPINFO,
+  RECEIVE_SHOPRATINGS
 } from './mutations-types'
 
 export default {
@@ -19,6 +22,15 @@ export default {
   },
   [RECEIVE_SHOPLIST] (state,shopList){
     state.shopList = shopList
+  },
+  [RECEIVE_SHOPGOODS](state,goods){
+    state.goods = goods
+  },
+  [RECEIVE_SHOPINFO](state,info){
+    state.info = info
+  },
+  [RECEIVE_SHOPRATINGS](state,ratings){
+    state.ratings = ratings
   }
 
 }

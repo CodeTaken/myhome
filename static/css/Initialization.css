@@ -140,7 +140,12 @@ input::-webkit-contacts-auto-fill-button {
 }
 
 
-
+.ellipsis{
+  height:23px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
 
 
 

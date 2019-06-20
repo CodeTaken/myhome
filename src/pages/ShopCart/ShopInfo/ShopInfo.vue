@@ -4,21 +4,21 @@
           <h3 class="section-title">配送信息</h3>
           <div class="delivery">
               <div>
-                  <span class="delivery-icon">硅谷专送</span>
-                  <span>由商家配送提供配送，约28分钟送达，距离1000m</span>
+                  <span class="delivery-icon">{{info.description}}</span>
+                  <span>由商家配送提供配送，约{{info.deliveryTime}}分钟送达，距离{{info.distance}}</span>
               </div>
-             <div class="delivery-money">配送费￥4</div>
+             <div class="delivery-money">配送费￥{{info.deliveryPrice}}</div>
           </div>
       </section>
       <div class="split" style="pointer-events: auto;"></div>
       <section class="section" style="pointer-events: auto;">
           <h3 class="section-title">活动与服务</h3>
           <div class="activity">
-            <div class="activity-item activity-green">
+            <div class="activity-item" v-for="(support , index) in info.supports" :key="index">
                 <span class="content-tag">
-                    <span class="mini-tag">首单</span>
+                    <span class="mini-tag" :class="discount[support.type]">{{support.name}}</span>
                 </span>
-                <span class="activity-content">新用户下单立减17元(不与其它活动同享)</span>
+                <span class="activity-content">{{support.content}}</span>
             </div>
           </div>
       </section>
@@ -26,8 +26,17 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
     export default {
-        name: "ShopGoods"
+        name: "ShopGoods",
+      data () {
+        return {
+            discount:['activity-green','activity-orange','activity-hot']
+        }
+      },
+      computed:{
+        ...mapState(['info'])
+      }
     }
 </script>
 
@@ -127,5 +136,17 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+  .activity-green{
+    background:#337E00;
+    border-radius: 6px;
+  }
+  .activity-orange{
+    background:#f2b644;
+    border-radius:6px;
+  }
+  .activity-hot{
+    background:#f80000;
+    border-radius: 6px;
   }
 </style>
