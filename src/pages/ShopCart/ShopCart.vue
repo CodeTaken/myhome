@@ -2,7 +2,7 @@
     <div class="shopCartPges">
       <div class="shopHeader">
           <div class="banner">
-            <img class="logo" src="" alt="">
+            <img class="logo" src="" alt="" @click="closeMask">
           </div>
           <div class="shopName">{{info.name}}</div>
           <div class="shopMessage">
@@ -11,7 +11,7 @@
             <span>约{{info.deliveryTime}}分钟</span>
             <span>距离{{info.distance}}</span>
           </div>
-          <div class="flex discount" v-if="info.supports">
+          <div class="flex discount" v-if="info.supports" @click="closeBottomMask">
             <p class="discountContent ellipsis" >
               <span >{{info.supports[0].name}}</span> <span class="">{{info.supports[0].content}}</span>
             </p>
@@ -35,20 +35,35 @@
 
 
 
+      <transition name="fade">
+       <CenterFrame class="centerFrame" @closeMask="closeMask" :shopInfo="info" v-if="mask" />
+      </transition>
 
-    <!--<CenterFrame/>-->
+      <!--优惠活动-->
+      <transition name="fade">
+        <BottomFrame class="centerFrame" @closeBottomMask="closeBottomMask" :title="title" :shopInfo="info" v-if="maskBottom" />
+      </transition>
+
+
     </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
   import CenterFrame from '../../components/CenterFrame/CenterFrame.vue'
+  import BottomFrame from '../../components/BottomFrame/BottomFrame.vue'
+
     export default {
         data () {
-            return {}
+            return {
+              mask:false,
+              maskBottom:false,
+              title:'优惠活动'
+            }
         },
       components:{
-        CenterFrame
+        CenterFrame,
+        BottomFrame
       },
       mounted(){
         this.$store.dispatch('getShopInfo',2)
@@ -57,6 +72,15 @@
       computed:{
         ...mapState(['goods','info','ratings'])
       },
+      methods:{
+        closeMask(data){
+            console.log(data);
+            this.mask= !this.mask
+        },
+        closeBottomMask(){
+          this.maskBottom= !this.maskBottom
+        }
+      }
     }
 </script>
 
@@ -137,5 +161,13 @@
   color: #f2b644;
   border-bottom:2px solid #f2b644;
 }
+
+
+  .centerFrame.fade-enter-active,.centerFrame.fade-leaver-active{
+    transition: opacity 2s;
+  }
+  .centerFrame.fade-enter,.centerFrame.fade-leaver-to{
+    transition: 0s;
+  }
 
 </style>

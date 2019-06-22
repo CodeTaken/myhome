@@ -1,23 +1,37 @@
 <template>
-    <div class="CenterFrame">
-      <div class="maskContent">
+
+      <div class="CenterFrame">
+        <div class="maskContent">
           <div class="maskContent-main">
-              <div>Name</div>
-              <div>Intro</div>
+            <div class="shopName"> <span class="code">品牌</span> <span class="name">{{shopInfo.name}}</span></div>
+            <h3>店家介绍</h3>
+            <div class="descript:;">{{shopInfo.bulletin}}</div>
           </div>
           <div class="closeMask">
-            <i class="iconfont icon-guanbi1"></i>
+            <i class="iconfont icon-guanbi1" @click="closeMask"></i>
           </div>
+        </div>
+        <div class=""></div>
       </div>
-      <div class=""></div>
-    </div>
+
+
 </template>
 
 <script>
     export default {
+        props:{
+            shopInfo:Object
+        },
         data () {
-            return {}
+            return {
+              msg:'this is msg'
+            }
+        },
+      methods:{
+        closeMask(){
+            this.$emit('closeMask',this.msg)
         }
+      }
     }
 </script>
 
@@ -46,6 +60,7 @@
   width:100%;
   background:#fff;
   border-radius: 10px;
+  padding:20px 15px;
 }
 .icon-guanbi1{
   font-size:30px;
@@ -55,4 +70,14 @@
   text-align: center;
   margin:20px auto;
 }
+.code{
+  padding:2px 8px;
+  font-size:12px;
+  background:linear-gradient(to right , #f7d171, #f2b644);
+  border-radius:4px;
+}
+  .shopName{
+    font-size:16px;
+    font-weight:bold;
+  }
 </style>

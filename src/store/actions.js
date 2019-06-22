@@ -5,7 +5,10 @@ import {
   RECEIVE_SHOPLIST,
   RECEIVE_SHOPGOODS,
   RECEIVE_SHOPINFO,
-  RECEIVE_SHOPRATINGS
+  RECEIVE_SHOPRATINGS,
+  ADD_COUNT,
+  DEC_COUNT,
+  USER_CART
 } from './mutations-types'
 import {
   reqPwdForm,
@@ -78,6 +81,29 @@ export default {
       let ratings = result.data
       commit(RECEIVE_SHOPRATINGS,ratings)
     }
+  },
+
+  // 同步更新foods;
+  uploadCartControl({commit},{type,food}){
+
+    if (type == 'add') {
+      // if (!food.count) {
+      //   food.count = 1;
+      // } else {
+      //   food.count++
+      // }
+      commit(ADD_COUNT, food)
+    } else {
+      // if (food.count > 0) {
+      //   food.count--
+      // } else {
+      //   food.count = 0
+      // }
+      commit(DEC_COUNT,food)
+    }
+  },
+  clearCart({commit}){
+    commit(USER_CART)
   }
 
 }
