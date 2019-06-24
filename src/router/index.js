@@ -1,10 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import  Home from '../pages/Home/Home.vue'
-import  Order from '../pages/Order/Order.vue'
-import  ShopCart from '../pages/ShopCart/ShopCart.vue'
-import  Profile from '../pages/Profile/Profile.vue'
+// import  Home from '../pages/Home/Home.vue'
+// import  Order from '../pages/Order/Order.vue'
+// import  ShopCart from '../pages/ShopCart/ShopCart.vue'
+// import  Profile from '../pages/Profile/Profile.vue'
+
+//todo 一般将一级路由进行路由组件懒加载
+const Home = () => import('../pages/Home/Home.vue')
+const Order = () => import('../pages/Order/Order.vue')
+const ShopCart = () => import('../pages/ShopCart/ShopCart.vue')
+const Profile = () => import('../pages/Profile/Profile.vue')
+
+
 
 import  Login from '../pages/Login/Login.vue'
 import  Users from '../pages/Users/Users.vue'

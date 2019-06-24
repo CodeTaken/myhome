@@ -13,9 +13,9 @@
       <div class="split" style="pointer-events: auto;"></div>
         <div class="userRatings">
           <div class="ratingsBtn">
-            <mt-button class="rating-type active" size="small">全部 24</mt-button>
-            <mt-button class="rating-type" size="small">满意 24</mt-button>
-            <mt-button class="rating-type" size="small">不满意 24</mt-button>
+            <mt-button class="rating-type" size="small" @click="toggleRatings(0)" :class="{active:ratingIndex ==0}">全部 {{ratings.length}}</mt-button>
+            <mt-button class="rating-type" size="small" @click="toggleRatings(1)" :class="{active:ratingIndex ==1}">满意 {{satisfiedNum}}</mt-button>
+            <mt-button class="rating-type" size="small" @click="toggleRatings(2)" :class="{active:ratingIndex ==2 }">不满意 {{ ratings.length-satisfiedNum}}</mt-button>
 
             <mt-checklist
               v-model='checkValue'
@@ -23,7 +23,7 @@
             </mt-checklist>
           </div>
           <ul class="ratings-profiles">
-            <li class="rating-item">
+            <li class="rating-item" v-for="(rating,index) in filterRatings" :key="index">
                 <div class="avatar">
                   <img width="28" height="28" src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
                 </div>
@@ -39,105 +39,17 @@
                       </div>
                       <span class="delivery">30</span>
                     </div>
-                  <p class="text">不错,粥很好喝,我经常吃这一家,非常赞,以后也会常来吃,强烈推荐.</p>
+                  <p class="text">{{rating.text}}</p>
                   <div class="recommend">
-                    <span class="iconfont icon-zan1"></span>
-                    <span class="item">南瓜粥</span>
-                    <span class="item">皮蛋瘦肉粥</span>
-                    <span class="item">扁豆焖面</span>
-                    <span class="item">娃娃菜炖豆腐</span>
-                    <span class="item">牛肉馅饼</span>
+                    <span class="iconfont icon-zan1" v-if="rating.rateType == 0"></span>
+                    <span class="iconfont icon-chaping" v-else-if="rating.rateType == 1"></span>
+
+                    <span class="item" v-for="(item,index) in rating.recommend" :key="index">{{item}}</span>
                   </div>
-                  <div class="time">2016-07-23 21:52:44</div>
+                  <div class="time">{{time(rating.rateTime)}}</div>
                 </div>
             </li>
 
-            <li class="rating-item">
-              <div class="avatar">
-                <img width="28" height="28" src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
-              </div>
-              <div class="content">
-                <h1 class="name">3******c</h1>
-                <div class="star-wrapper">
-                  <div class="star star-24">
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                  </div>
-                  <span class="delivery">30</span>
-                </div>
-                <p class="text">不错,粥很好喝,我经常吃这一家,非常赞,以后也会常来吃,强烈推荐.</p>
-                <div class="recommend">
-                  <span class="iconfont icon-zan1"></span>
-                  <span class="item">南瓜粥</span>
-                  <span class="item">皮蛋瘦肉粥</span>
-                  <span class="item">扁豆焖面</span>
-                  <span class="item">娃娃菜炖豆腐</span>
-                  <span class="item">牛肉馅饼</span>
-                </div>
-                <div class="time">2016-07-23 21:52:44</div>
-              </div>
-            </li>
-
-            <li class="rating-item">
-              <div class="avatar">
-                <img width="28" height="28" src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
-              </div>
-              <div class="content">
-                <h1 class="name">3******c</h1>
-                <div class="star-wrapper">
-                  <div class="star star-24">
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                  </div>
-                  <span class="delivery">30</span>
-                </div>
-                <p class="text">不错,粥很好喝,我经常吃这一家,非常赞,以后也会常来吃,强烈推荐.</p>
-                <div class="recommend">
-                  <span class="iconfont icon-zan1"></span>
-                  <span class="item">南瓜粥</span>
-                  <span class="item">皮蛋瘦肉粥</span>
-                  <span class="item">扁豆焖面</span>
-                  <span class="item">娃娃菜炖豆腐</span>
-                  <span class="item">牛肉馅饼</span>
-                </div>
-                <div class="time">2016-07-23 21:52:44</div>
-              </div>
-            </li>
-
-            <li class="rating-item">
-              <div class="avatar">
-                <img width="28" height="28" src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
-              </div>
-              <div class="content">
-                <h1 class="name">3******c</h1>
-                <div class="star-wrapper">
-                  <div class="star star-24">
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                    <span class="star-item on"></span>
-                  </div>
-                  <span class="delivery">30</span>
-                </div>
-                <p class="text">不错,粥很好喝,我经常吃这一家,非常赞,以后也会常来吃,强烈推荐.</p>
-                <div class="recommend">
-                  <span class="iconfont icon-zan1"></span>
-                  <span class="item">南瓜粥</span>
-                  <span class="item">皮蛋瘦肉粥</span>
-                  <span class="item">扁豆焖面</span>
-                  <span class="item">娃娃菜炖豆腐</span>
-                  <span class="item">牛肉馅饼</span>
-                </div>
-                <div class="time">2016-07-23 21:52:44</div>
-              </div>
-            </li>
 
 
 
@@ -147,13 +59,52 @@
 </template>
 
 <script>
+  import {mapState,mapGetters} from 'vuex'
     export default {
         name: "ShopGoods",
       data(){
           return{
-            checkValue:[]
+            checkValue:[],
+            ratingIndex:0
           }
-      }
+      },
+      computed:{
+        ...mapState(['ratings']),
+        ...mapGetters(['satisfiedNum']),
+        filterRatings(){
+          // 改变了index，通过计算属性来过滤数据。
+          // todo ratingIndex == 0     && rateType==0 && && rateType==1  返回全部数据
+          // todo ratingIndex == 1     && rateType==0   返回 满意的数据
+          // todo ratingIndex == 2     && rateType==1   返回 不满意的数据
+          let data;
+          if(this.ratingIndex == 0){
+            data = this.ratings
+          }else if(this.ratingIndex == 1){
+            data = this.ratings.filter((value)=>{
+              return value.rateType == 0
+            })
+          }else{
+            data = this.ratings.filter((value)=>{
+              return value.rateType ==1
+            })
+          }
+
+          // todo 是否选择了checkbox
+          this.checkValue.length >0?(data = data.filter((value)=>{
+            return value.text.length>0
+          })):''
+          return data
+        }
+      },
+      methods:{
+        toggleRatings(value){
+          this.ratingIndex = value;
+        },
+        time(time = +new Date()){
+          var date = new Date(time + 8 * 3600 * 1000);
+          return date.toJSON().substr(0, 19).replace('T', ' ').replace(/-/g, '-');
+        }
+      },
     }
 </script>
 
@@ -244,6 +195,9 @@
 }
 .rating-item .content .recommend .icon-zan1 {
   color: #f5a100;
+}
+.rating-item .content .recommend .icon-chaping{
+  color:#ddd;
 }
 .rating-item .content .recommend .item {
   padding: 0 6px;

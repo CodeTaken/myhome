@@ -2,7 +2,7 @@
     <div class="shopCart">
         <div class="flex content">
           <div class="content-left">
-                <span class="flex cart" @click="toggleCart"><i class="iconfont icon-gouwucheman"></i> <i class="num" v-if="userCart.length">{{userCart.length}}</i></span>
+                <span class="flex cart" @click="toggleCart" :class="{ active : total }"><i class="iconfont icon-gouwucheman" :class="{ active : total }"></i> <i class="num" v-if="userCart.length">{{userCart.length}}</i></span>
           </div>
           <div class="flex content-right">
             <span v-if="userCart.length==0">{{info.minPrice}}元起送</span>
@@ -178,5 +178,14 @@
     font-size:24px;
     color:#80858a;
 
+  }
+  .cart.active{
+    background:#02a774;
+
+  }
+  .icon-gouwucheman.active{
+    color:#fff;
+    background:#02a774;
+    border-radius: 10px;
   }
 </style>

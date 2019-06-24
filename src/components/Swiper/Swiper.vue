@@ -2,7 +2,7 @@
   <swiper :options="ad.options" ref="mySwiper" class="swiperModule">
     <!-- slides -->
     <swiper-slide v-for="(adItem,index) in ad.data" :key="index">
-      <img :src="adItem" class="img_auto" alt="">
+      <img v-lazy="adItem" class="img_auto" alt="">
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>

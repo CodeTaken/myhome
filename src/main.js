@@ -14,9 +14,19 @@ import { Button ,Checklist } from 'mint-ui';
 Vue.component(Button.name, Button);
 Vue.component(Checklist.name, Checklist);
 
+
 import store from './store'
 import './mock/mockServer'
 Vue.config.productionTip = false
+
+// layzload
+import VueLazyload from 'vue-lazyload'
+import lazyloadingImg from './assets/imgs/loading.gif'
+Vue.use(VueLazyload, {
+  loading: lazyloadingImg,
+})
+
+
 
 /* eslint-disable no-new */
 new Vue({
