@@ -1,5 +1,9 @@
 <template>
     <div class="LoginＭodule">
+      <div class="page-back" @click="$router.back()">
+        <i class="iconfont icon-zuojiantou"></i>
+      </div>
+
          <div class="LoginContent">
             <img class="Logo" width="80" src="https://www.microsoftsalesspecialist.com/mini/mini-image/loginLogo.png" alt="">
 

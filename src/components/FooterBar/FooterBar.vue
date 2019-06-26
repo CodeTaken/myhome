@@ -6,12 +6,12 @@
         </div>
         <div class="footerItem c-flex" :class="{active: '/order' === $route.path}" @click="goPath('/order')">
           <i class="iconfont icon-dingdan c-iconfont-20"></i>
-          <span>首页</span>
+          <span>搜索</span>
         </div>
-        <div class="footerItem c-flex" :class="{active: '/shopCart' === $route.path}" @click="goPath('/shopCart')">
-          <i class="iconfont icon-gouwucheman c-iconfont-20"></i>
-          <span>购物车</span>
-        </div>
+        <!--<div class="footerItem c-flex" :class="{active: '/shopCart' === $route.path}" @click="goPath('/shopCart')">-->
+          <!--<i class="iconfont icon-gouwucheman c-iconfont-20"></i>-->
+          <!--<span>购物车</span>-->
+        <!--</div>-->
         <div class="footerItem c-flex" :class="{active: '/profile' === $route.path}" @click="goPath('/profile')">
           <i class="iconfont icon-wodedangxuan c-iconfont-20"></i>
           <span>我的</span>

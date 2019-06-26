@@ -148,6 +148,16 @@ input::-webkit-contacts-auto-fill-button {
 }
 
 
+.page-back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  color: #fff;
+}
+.page-back .iconfont{
+  font-size:24px;
+}
 
 
 

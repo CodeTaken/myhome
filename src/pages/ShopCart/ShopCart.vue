@@ -1,5 +1,10 @@
 <template>
     <div class="shopCartPges">
+
+      <div class="page-back" @click="$router.back()">
+        <i class="iconfont icon-zuojiantou"></i>
+      </div>
+
       <div class="shopHeader">
           <div class="banner">
             <img class="logo" src="" alt="" @click="closeMask">
