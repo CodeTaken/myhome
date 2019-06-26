@@ -10,7 +10,8 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 // mini ui
-import { Button ,Checklist } from 'mint-ui';
+import { Button ,Checklist ,MessageBox} from 'mint-ui';
+
 Vue.component(Button.name, Button);
 Vue.component(Checklist.name, Checklist);
 

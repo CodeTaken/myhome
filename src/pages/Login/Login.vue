@@ -39,6 +39,7 @@
 
 <script>
   import {reqPwdForm,reqPhoneCode} from '../../api/index'
+  import { MessageBox } from 'mint-ui';
     export default {
         data () {
             return {
@@ -89,13 +90,17 @@
           if(this.loginMode){
             // 短信登录
             if(!this.phoneLogin.phone ){
-              alert('请输入手机号!');
+              //alert('请输入手机号!');
+              //console.log(this);
+             MessageBox.alert('请输入手机号!', '提示');
               return
             }else if(!reg.test(this.phoneLogin.phone)){
-              alert('手机号格式不正确！');
+              //alert('手机号格式不正确！');
+              MessageBox.alert('手机号格式不正确！', '提示');
               return
             }else if(!this.phoneLogin.code){
-              alert('请输入验证码！');
+              //alert('请输入验证码！');
+              MessageBox.alert('请输入验证码！', '提示');
               return
             }
             else{
@@ -105,7 +110,8 @@
           }else{
             // 密码登录
             if(!this.pwdLogin.name ){
-              alert('请输入用户名！')
+              //alert('请输入用户名！')
+              MessageBox.alert('请输入用户名！', '提示');
               return
             }else if(!this.pwdLogin.pwd){
               alert('请输入密码！')
